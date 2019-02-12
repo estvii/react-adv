@@ -4,7 +4,9 @@ export default function (state = [],action) {
     switch(action.type) {
         case SAVE_COMMENT: 
             return [...state, action.payload];
+            // return [...state, action.payload, {} ]; add that to trigger the stateValidator middleware
         case FETCH_COMMENTS:
+            // debugger;
             const comments = action.payload.data.map(comment => comment.name)
             return [...state, ...comments]
         default: 
